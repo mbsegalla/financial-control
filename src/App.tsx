@@ -1,13 +1,16 @@
 import React from 'react'
+import { ThemeProvider } from 'styled-components'
 
+import Routes from './routes'
 import { GlobalStyles } from './styles/globalStyles'
+import { theme } from './styles/theme'
 
 const App: React.FC = () => {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <h1>Hello World</h1>
-    </div>
+      <Routes />
+    </ThemeProvider>
   )
 }
 

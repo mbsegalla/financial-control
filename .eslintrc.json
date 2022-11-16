@@ -21,7 +21,8 @@
     "no-unused-vars": "off",
     "no-use-before-define": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
-    "max-len": ["error", { "code": 120, "ignoreComments": true, "ignoreStrings": true, "ignoreTemplateLiterals": true }],
+    "@typescript-eslint/consistent-type-imports": "error",
+    "max-len": ["error", { "code": 160, "ignoreComments": true, "ignoreStrings": true, "ignoreTemplateLiterals": true }],
     "react/function-component-definition": [
       2,
       {
