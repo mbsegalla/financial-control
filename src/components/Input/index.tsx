@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
+import type { ForwardRefRenderFunction } from 'react'
 
-const Input: React.FC = () => {
-  return <div>Input</div>
+import { Label, InputUi, InputBase } from './styles'
+
+interface InputProps {
+  label: string
+  type: string
+  placeholder: string
 }
 
-export default Input
+const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ label, type, placeholder, ...props }: InputProps, ref) => {
+  return (
+    <InputBase ref={ref}>
+      <Label>{label}</Label>
+      <InputUi type={type} placeholder={placeholder} {...props} />
+    </InputBase>
+  )
+}
+
+export default forwardRef(Input)
