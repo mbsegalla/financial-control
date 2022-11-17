@@ -1,7 +1,12 @@
 import React from 'react'
+import type { ReactNode } from 'react'
 
-const DefaultLayout: React.FC = () => {
-  return <div>DefaultLayout</div>
+interface DefaultLayoutProps {
+  children: ReactNode
+}
+
+const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }: DefaultLayoutProps) => {
+  return <div>{children}</div>
 }
 
 export default DefaultLayout

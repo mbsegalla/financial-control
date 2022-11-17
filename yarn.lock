@@ -381,13 +381,6 @@
     "tiny-glob" "^0.2.9"
     "tslib" "^2.4.0"
 
-"@types/history@*":
-  "integrity" "sha512-hy8b7Y1J8OGe6LbAjj3xniQrj3v6lsivCcrmf4TzSgPzLkhIeKgc5IZnT7ReIqmEuodjfO8EYAuoFvIrHi/+jQ=="
-  "resolved" "https://registry.npmjs.org/@types/history/-/history-5.0.0.tgz"
-  "version" "5.0.0"
-  dependencies:
-    "history" "*"
-
 "@types/history@^4.7.11":
   "integrity" "sha512-qjDJRrmvBMiTx+jyLxvLfJU7UznFuokDv4f3WRuriHKERccVpFU+8XMQUAbDzoiJCsmexxRExQeMwwCdamSKDA=="
   "resolved" "https://registry.npmjs.org/@types/history/-/history-4.7.11.tgz"
@@ -430,12 +423,12 @@
   dependencies:
     "react-icons" "*"
 
-"@types/react-router-dom@^5.3.0":
-  "integrity" "sha512-svUzpEpKDwK8nmfV2vpZNSsiijFNKY8+gUqGqvGGOVrXvX58k1JIJubZa5igkwacbq/0umphO5SsQn/BQsnKpw=="
-  "resolved" "https://registry.npmjs.org/@types/react-router-dom/-/react-router-dom-5.3.0.tgz"
-  "version" "5.3.0"
+"@types/react-router-dom@^5.3.3":
+  "integrity" "sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw=="
+  "resolved" "https://registry.npmjs.org/@types/react-router-dom/-/react-router-dom-5.3.3.tgz"
+  "version" "5.3.3"
   dependencies:
-    "@types/history" "*"
+    "@types/history" "^4.7.11"
     "@types/react" "*"
     "@types/react-router" "*"
 
@@ -1458,7 +1451,7 @@
   dependencies:
     "function-bind" "^1.1.1"
 
-"history@*", "history@^4.9.0":
+"history@^4.9.0":
   "integrity" "sha512-36nwAD620w12kuzPAsyINPWJqlNbij+hpK1k9XRloDtym8mxzGYl2c17LnV6IAGB2Dmg4tEa7G7DlawS0+qjew=="
   "resolved" "https://registry.npmjs.org/history/-/history-4.10.1.tgz"
   "version" "4.10.1"
