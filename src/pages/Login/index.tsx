@@ -26,6 +26,8 @@ const Login: React.FC = () => {
     },
   })
 
+  // TODO: remove this
+  console.log(errors)
   const inputRef = useRef(null)
 
   const handleLoginSubmit = (data: LoginFormData) => {
@@ -38,8 +40,8 @@ const Login: React.FC = () => {
       <FormContainer>
         <Image src={loginImage} />
         <Form onSubmit={handleSubmit(handleLoginSubmit)}>
-          <Input {...inputRef} label="Email" type="email" placeholder="Digite seu email" {...register('email')} />
-          <Input {...inputRef} label="Senha" type="password" placeholder="Digite sua senha" {...register('password')} />
+          <Input {...inputRef} label="Email" type="email" placeholder="Digite seu email" {...(register('email'), { required: true })} />
+          <Input {...inputRef} label="Senha" type="password" placeholder="Digite sua senha" {...(register('password'), { required: true })} />
           <ButtonBase>
             <Button type="submit">Entrar</Button>
           </ButtonBase>
