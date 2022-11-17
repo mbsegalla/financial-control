@@ -7,7 +7,10 @@ export const HeaderBase = styled.header`
 export const CenterBase = styled.main`
   width: 100%;
   min-height: 100%;
-  height: 100vh;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export const FooterBase = styled.footer`
