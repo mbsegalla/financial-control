@@ -43,8 +43,8 @@ const Login: React.FC = () => {
       <FormContainer>
         <Image src={loginImage} />
         <Form onSubmit={handleSubmit(handleLoginSubmit)}>
-          <Input {...inputRef} icon={<RiLockPasswordFill />} label="Email" type="email" placeholder="Digite seu email" {...(register('email'), { required: true })} />
-          <Input {...inputRef} icon={<MdEmail />} label="Senha" type="password" placeholder="Digite sua senha" {...(register('password'), { required: true })} />
+          <Input {...inputRef} icon={<MdEmail />} label="Email" type="email" placeholder="Digite seu email" {...(register('email'), { required: true })} />
+          <Input {...inputRef} icon={<RiLockPasswordFill />} label="Senha" type="password" placeholder="Digite sua senha" {...(register('password'), { required: true })} />
           <ButtonBase>
             <Button type="submit">Entrar</Button>
           </ButtonBase>
