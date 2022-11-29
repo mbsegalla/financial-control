@@ -6,4 +6,7 @@ export const theme = {
     primaryLight: '#9d4edd',
     primaryDark: '#240046',
   },
+  fonts: {
+    primary: "'Ubuntu', sans-serif",
+  },
 }

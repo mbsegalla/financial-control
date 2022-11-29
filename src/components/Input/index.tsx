@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import type { ForwardRefRenderFunction } from 'react'
 
-import { Label, InputUi, InputBase, Icon } from './styles'
+import { Label, InputUi, InputBase, Icon, Option } from './styles'
 
 interface InputProps {
   label: string
@@ -31,15 +31,25 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ label, 
         <Label>{label}</Label>
         <Icon>{icon}</Icon>
         <InputUi as="select" {...props}>
-          <option value="">{placeholder}</option>
+          <Option value="">{placeholder}</Option>
           {options?.map((option) => {
             return (
-              <option key={option.value} value={option.value}>
+              <Option key={option.value} value={option.value}>
                 {option.label}
-              </option>
+              </Option>
             )
           })}
         </InputUi>
+      </InputBase>
+    )
+  }
+
+  if (type === 'date') {
+    return (
+      <InputBase ref={ref}>
+        <Label>{label}</Label>
+        <Icon>{icon}</Icon>
+        <InputUi type="date" {...props} />
       </InputBase>
     )
   }
