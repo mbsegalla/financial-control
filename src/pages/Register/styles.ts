@@ -4,6 +4,7 @@ export const Container = styled.div`
   background-color: ${(props) => props.theme.colors.white};
   width: 100%;
   min-width: 600px;
+  max-width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -12,8 +13,18 @@ export const Container = styled.div`
   border-radius: 5px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
   padding: 50px 0px;
+
+  @media (max-width: 620px) {
+    min-width: 400px;
+  }
+
+  @media (max-width: 418px) {
+    min-width: 350px;
+  }
 `
 export const FormContainer = styled.div``
+
+export const Form = styled.form``
 
 export const FormTitle = styled.h1`
   margin: 0;
