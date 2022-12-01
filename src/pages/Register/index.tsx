@@ -21,10 +21,9 @@ const Register: React.FC = () => {
       <FormContainer>
         <FormTitle>Registre sua despesa</FormTitle>
         <Form>
-          <Input {...inputRef} label="Despesa" type="text" placeholder="Digite o nome da despesa" />
-          <Input {...inputRef} label="Valor" type="text" placeholder="Digite o valor da despesa" />
           <Input {...inputRef} label="Data" type="date" placeholder="Digite a data da despesa" />
           <Input {...inputRef} label="Tipo" type="select" options={expenseTypes} placeholder="Tipo da despesa" />
+          <Input {...inputRef} label="Valor" type="text" placeholder="Digite o valor da despesa" />
           <Input {...inputRef} label="Forma de pagamento" type="select" options={paymentMethods} placeholder="Forma de pagamento" {...register('paymentMethod')} />
           {creditCard && <Input {...inputRef} label="Parcelado" type="select" options={installments} placeholder="Selecione uma opção" {...register('installment')} />}
           {hasInstallments && <Input {...inputRef} {...inputRef} label="Quantidade de parcelas" type="select" options={numberOfInstallments()} placeholder="Quantidade de parcelas" />}

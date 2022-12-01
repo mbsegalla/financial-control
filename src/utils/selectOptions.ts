@@ -4,12 +4,12 @@ export const expenseTypes = [
     label: 'Mercado',
   },
   {
-    value: 'Ifood',
+    value: 'ifood',
     label: 'Ifood',
   },
   {
-    value: 'restaurant',
-    label: 'Restaurante',
+    value: 'food',
+    label: 'Alimentação',
   },
   {
     value: 'store',
