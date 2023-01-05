@@ -21,7 +21,6 @@ export const InputUi = styled.input`
   border: none;
   background-color: #f5f5f5;
   font-family: ${(props) => props.theme.fonts.primary};
-  color: ${(props) => props.theme.colors.primaryMain};
 
   &:focus {
     outline: none;
@@ -30,13 +29,15 @@ export const InputUi = styled.input`
 
   &::placeholder {
     color: #a9a9a9;
+    font-size: 0.75rem;
+    padding-left: 1rem;
   }
 `
 export const Icon = styled.i`
-  color: ${(props) => props.theme.colors.primaryLight};
   position: absolute;
   margin-top: 32px;
   margin-left: 5px;
+  color: gray;
 `
 
 export const Option = styled.option`
