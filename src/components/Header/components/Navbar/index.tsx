@@ -10,11 +10,11 @@ const Navbar: React.FC = () => {
       <Ul>
         <Li>
           <MdOutlineAppRegistration />
-          <a href="#">Registrar</a>
+          <a href="register">Registrar</a>
         </Li>
         <Li>
           <MdOutlineAnalytics />
-          <a href="#">Consultar</a>
+          <a href="/consult">Consultar</a>
         </Li>
       </Ul>
     </nav>
