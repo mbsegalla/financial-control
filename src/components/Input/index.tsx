@@ -1,7 +1,7 @@
-import type { ForwardRefRenderFunction } from 'react'
+import type { ForwardRefRenderFunction, ReactNode } from 'react'
 import { forwardRef } from 'react'
 
-import { InputBase, InputMask, InputUi, Select, TextArea } from './styles'
+import { ErrorMessage, IconBase, InputBase, InputMask, InputUi, Label, Select, TextArea } from './styles'
 
 interface InputProps {
   type: string
@@ -12,15 +12,20 @@ interface InputProps {
     label: string
   }[]
   error?: string
+  icon?: string | ReactNode | JSX.Element
 }
 
-const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ type, label, autoComplete, options, error, ...props }: InputProps, ref) => {
+const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
+  { type, label, autoComplete, options, error, icon, ...props }: InputProps,
+  ref,
+) => {
   if (type === 'text' || type === 'password' || type === 'number') {
     return (
       <InputBase ref={ref}>
-        <label>{label}</label>
-        <InputUi type={type} autoComplete={autoComplete} {...props} />
-        {error && <span>{error}</span>}
+        <Label>{label}</Label>
+        <InputUi type={type} autoComplete={autoComplete} error={error} {...props} />
+        {icon && <IconBase>{icon}</IconBase>}
+        <ErrorMessage error={error}>{error}</ErrorMessage>
       </InputBase>
     )
   }
@@ -28,8 +33,8 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ type, l
   if (type === 'select') {
     return (
       <InputBase ref={ref}>
-        <label>{label}</label>
-        <Select {...props}>
+        <Label>{label}</Label>
+        <Select error={error} {...props}>
           <option value="">selecione uma opção</option>
           {options?.map((option) => (
             <option key={option.value} value={option.value}>
@@ -37,7 +42,8 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ type, l
             </option>
           ))}
         </Select>
-        {error && <span>{error}</span>}
+        {icon && <IconBase>{icon}</IconBase>}
+        <ErrorMessage error={error}>{error}</ErrorMessage>
       </InputBase>
     )
   }
@@ -45,7 +51,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ type, l
   if (type === 'price') {
     return (
       <InputBase ref={ref}>
-        <label>{label}</label>
+        <Label>{label}</Label>
         <InputMask
           mask={'R$ num'}
           blocks={{
@@ -58,9 +64,11 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ type, l
             },
           }}
           autoComplete={autoComplete}
+          error={error}
           {...props}
         />
-        {error && <span>{error}</span>}
+        {icon && <IconBase>{icon}</IconBase>}
+        <ErrorMessage error={error}>{error}</ErrorMessage>
       </InputBase>
     )
   }
@@ -68,8 +76,10 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ type, l
   if (type === 'date') {
     return (
       <InputBase ref={ref}>
-        <label>{label}</label>
-        <InputMask mask={'00/00/0000'} autoComplete={autoComplete} {...props} />
+        <Label>{label}</Label>
+        <InputMask mask={'00/00/0000'} autoComplete={autoComplete} error={error} {...props} />
+        {icon && <IconBase>{icon}</IconBase>}
+        <ErrorMessage error={error}>{error}</ErrorMessage>
       </InputBase>
     )
   }
@@ -77,9 +87,10 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ type, l
   if (type === 'textarea') {
     return (
       <InputBase ref={ref}>
-        <label>{label}</label>
-        <TextArea {...props} />
-        {error && <span>{error}</span>}
+        <Label>{label}</Label>
+        <TextArea error={error} {...props} />
+        {icon && <IconBase>{icon}</IconBase>}
+        <ErrorMessage error={error}>{error}</ErrorMessage>
       </InputBase>
     )
   }

@@ -1,12 +1,16 @@
+import { TbUserSquareRounded } from 'react-icons/tb'
+
 import LoginForm from '../../components/LoginForm'
 
-import { Container, Wrapper } from './styles'
+import { Container, TitleBase, Wrapper } from './styles'
 
 const Login = () => {
   return (
     <Container>
       <Wrapper>
-        <span>LOGO</span>
+        <TitleBase>
+          <TbUserSquareRounded />
+        </TitleBase>
 
         <LoginForm />
       </Wrapper>

@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlineUser } from 'react-icons/ai'
+import { RiLockPasswordLine } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 import { zodResolver } from '@hookform/resolvers/zod'
 
@@ -8,6 +11,7 @@ import Input from '../Input'
 
 import type { LoginFormTypeShema } from './schema'
 import { loginFormSchema } from './schema'
+import { ButtonBase, InputPassowordBase, LoginButton, ShowPassword } from './styles'
 
 interface LoginResponse {
   data: {
@@ -22,6 +26,7 @@ interface LoginResponse {
 }
 
 const LoginForm = () => {
+  const [showPassword, setShowPassword] = useState(false)
   const { setUserInfo } = useUserStore()
 
   const {
@@ -37,6 +42,12 @@ const LoginForm = () => {
   const navigate = useNavigate()
 
   console.log('errors', errors)
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword)
+  }
+
+  const passwordType = showPassword ? 'text' : 'password'
 
   const handleFormSubmit = async (data: LoginFormTypeShema) => {
     const { username, password } = data
@@ -78,9 +89,28 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)}>
-      <Input type="text" label="Usuário" autoComplete="username" error={errors.username?.message} {...register('username')} />
-      <Input type="password" label="Senha" autoComplete="current-password" error={errors.password?.message} {...register('password')} />
-      <button type="submit">Login</button>
+      <Input
+        type="text"
+        label="Usuário"
+        autoComplete="username"
+        error={errors.username?.message}
+        icon={<AiOutlineUser />}
+        {...register('username')}
+      />
+      <InputPassowordBase>
+        <Input
+          type={passwordType}
+          label="Senha"
+          autoComplete="current-password"
+          error={errors.password?.message}
+          icon={<RiLockPasswordLine />}
+          {...register('password')}
+        />
+        <ShowPassword onClick={handleShowPassword}>{showPassword ? <AiOutlineEyeInvisible size={18} /> : <AiOutlineEye size={18} />}</ShowPassword>
+      </InputPassowordBase>
+      <ButtonBase>
+        <LoginButton type="submit">Entrar</LoginButton>
+      </ButtonBase>
     </form>
   )
 }
