@@ -19,7 +19,7 @@ export const ExpenseRegisterButton = styled.button`
   background-color: #f2c94c;
   border: none;
   border-radius: 5px;
-  color: #fff;
+  color: ${({ theme }) => theme.palette.white};
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;

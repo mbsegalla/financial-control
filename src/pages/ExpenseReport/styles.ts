@@ -25,8 +25,13 @@ export const AddExpenseButton = styled.button`
   padding: 8px 10px;
   border-radius: 0.5rem;
   border: none;
-  background-color: #2ecc71;
+  background-color: ${({ theme }) => theme.palette.primary.main};
   color: white;
   font-weight: 700;
   gap: 5px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.primary.dark};
+  }
 `

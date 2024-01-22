@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   width: 100%;
   max-width: 462px;
   padding: 40px;
-  background: #fff;
+  background: ${({ theme }) => theme.palette.white};
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 `
