@@ -26,7 +26,6 @@ const inputBaseStyle = css<InputProps>`
   color: ${({ theme }) => theme.palette.text.primary};
   font-weight: 400;
   font-size: 1rem;
-  margin-bottom: 5px;
 
   &:focus {
     outline: none;

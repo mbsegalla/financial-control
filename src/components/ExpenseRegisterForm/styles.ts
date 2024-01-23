@@ -6,9 +6,17 @@ export const Form = styled.form`
   gap: 15px;
 `
 
-export const PaymentMethodWrapper = styled.div`
+export const InputWrapper = styled.div`
   display: flex;
   gap: 20px;
+
+  input {
+    width: 200px;
+  }
+
+  select {
+    width: 292px;
+  }
 `
 
 export const ButtonBase = styled.div`
@@ -20,8 +28,13 @@ export const ExpenseRegisterButton = styled.button`
   border: none;
   border-radius: 5px;
   color: ${({ theme }) => theme.palette.white};
-  cursor: pointer;
+  background-color: ${({ theme }) => theme.palette.primary.main};
   font-size: 1rem;
   font-weight: bold;
   padding: 10px 40px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.palette.primary.light};
+  }
 `

@@ -15,8 +15,8 @@ export const ModalContainer = styled.article`
 
 export const Wrapper = styled.div`
   width: 100%;
-  max-width: 462px;
-  padding: 40px;
+  max-width: 600px;
+  padding: 20px 40px;
   background: ${({ theme }) => theme.palette.white};
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -33,5 +33,9 @@ export const CloseButtonBase = styled.div`
 
 export const Title = styled.h2`
   text-align: center;
-  font-size: 1.75rem;
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: ${({ theme }) => theme.palette.primary.main};
+  margin: auto;
+  margin-bottom: 30px;
 `

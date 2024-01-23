@@ -11,4 +11,8 @@ export const GlobalStyle = createGlobalStyle`
   button, input, textarea, select {
     font-family: 'Poppins', sans-serif;
   }
+
+  button {
+    cursor: pointer;
+  }
 `

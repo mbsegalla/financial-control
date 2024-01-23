@@ -30,7 +30,6 @@ export const LoginButton = styled.button`
   border: none;
   padding: 10px 20px;
   width: 200px;
-  cursor: pointer;
   background-color: ${({ theme }) => theme.palette.primary.main};
   color: ${({ theme }) => theme.palette.white};
   font-size: 1rem;
@@ -38,6 +37,6 @@ export const LoginButton = styled.button`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: ${({ theme }) => theme.palette.primary.dark};
+    background-color: ${({ theme }) => theme.palette.primary.light};
   }
 `

@@ -2,7 +2,7 @@ import { styled } from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 `
 
 export const Wrapper = styled.div`
@@ -20,18 +20,17 @@ export const ButtonBase = styled.div`
 
 export const AddExpenseButton = styled.button`
   display: flex;
-  cursor: pointer;
   font-size: 1rem;
   padding: 8px 10px;
   border-radius: 0.5rem;
   border: none;
   background-color: ${({ theme }) => theme.palette.primary.main};
-  color: white;
+  color: ${({ theme }) => theme.palette.white};
   font-weight: 700;
   gap: 5px;
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: ${({ theme }) => theme.palette.primary.dark};
+    background-color: ${({ theme }) => theme.palette.primary.light};
   }
 `

@@ -6,8 +6,12 @@ export const Table = styled.table`
 `
 
 export const TableHead = styled.thead`
-  background-color: aquamarine;
-  padding: 20px;
+  background-color: ${({ theme }) => theme.palette.primary.main};
+  color: ${({ theme }) => theme.palette.white};
+
+  & th {
+    padding: 5px 0px;
+  }
 `
 
 export const TableCell = styled.th`
