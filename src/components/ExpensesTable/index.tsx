@@ -1,8 +1,24 @@
-import { data } from '../../utils/mocks'
+import { formattedDate } from '../../utils/formatDate'
+import { formatPrice } from '../../utils/formatPrice'
+import { translateCategory, translatePaymentMethod } from '../../utils/translates'
 
 import { TabelRow, Table, TableBody, TableCell, TableHead } from './styles'
 
-const ExpensesTable = () => {
+interface ExpensestableProps {
+  data: {
+    _id: string
+    userId: string | null
+    name: string
+    price: number
+    date: Date
+    category: string
+    paymentMethod: string
+    installments?: number
+    comments?: string
+  }[]
+}
+
+const ExpensesTable = ({ data }: ExpensestableProps) => {
   return (
     <Table>
       <TableHead>
@@ -17,15 +33,15 @@ const ExpensesTable = () => {
         </TabelRow>
       </TableHead>
       <TableBody>
-        {data.map((item) => (
-          <TabelRow key={item.id}>
-            <td>{item.name}</td>
-            <td>{item.price}</td>
-            <td>{item.date}</td>
-            <td>{item.category}</td>
-            <td>{item.paymentMethod}</td>
-            <td>{item.installments}</td>
-            <td>{item.comments}</td>
+        {data.map((expense) => (
+          <TabelRow key={expense._id}>
+            <td>{expense.name}</td>
+            <td>{formatPrice(expense.price)}</td>
+            <td>{formattedDate(expense.date)}</td>
+            <td>{translateCategory(expense.category)}</td>
+            <td>{translatePaymentMethod(expense.paymentMethod)}</td>
+            <td>{expense.installments}</td>
+            <td>{expense.comments}</td>
           </TabelRow>
         ))}
       </TableBody>

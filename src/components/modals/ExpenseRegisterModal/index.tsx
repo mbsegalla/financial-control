@@ -40,7 +40,7 @@ const ExpenseRegisterModal = ({ open, setOpenModal }: ExpenseRegisterModalProps)
           </CloseButtonBase>
           <Title>Registre sua despesa</Title>
 
-          <ExpenseRegisterForm />
+          <ExpenseRegisterForm setOpenModal={setOpenModal} />
         </Wrapper>
       </ModalContainer>
     )
