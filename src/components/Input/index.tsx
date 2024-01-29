@@ -7,6 +7,7 @@ interface InputProps {
   type: string
   label: string
   autoComplete?: string
+  placeholder?: string
   options?: {
     value: string | number
     label: string
@@ -16,14 +17,14 @@ interface InputProps {
 }
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  { type, label, autoComplete, options, error, icon, ...props }: InputProps,
+  { type, label, autoComplete, placeholder, options, error, icon, ...props }: InputProps,
   ref,
 ) => {
   if (type === 'text' || type === 'password' || type === 'number') {
     return (
       <InputBase ref={ref}>
         <Label>{label}</Label>
-        <InputUi type={type} autoComplete={autoComplete} error={error} {...props} />
+        <InputUi type={type} autoComplete={autoComplete} placeholder={placeholder} error={error} {...props} />
         {icon && <IconBase>{icon}</IconBase>}
         <ErrorMessage error={error}>{error}</ErrorMessage>
       </InputBase>
@@ -77,7 +78,7 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     return (
       <InputBase ref={ref}>
         <Label>{label}</Label>
-        <InputMask mask={'00/00/0000'} autoComplete={autoComplete} error={error} {...props} />
+        <InputMask mask={'00/00/0000'} autoComplete={autoComplete} placeholder={placeholder} error={error} {...props} />
         {icon && <IconBase>{icon}</IconBase>}
         <ErrorMessage error={error}>{error}</ErrorMessage>
       </InputBase>

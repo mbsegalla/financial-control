@@ -13,7 +13,7 @@ export const Form = styled.form`
   }
 `
 
-export const SearchButton = styled.button`
+export const buttonBaseStyle = styled.button`
   display: flex;
   align-items: center;
   gap: 5px;
@@ -25,8 +25,16 @@ export const SearchButton = styled.button`
   font-weight: 700;
   border-radius: 0.5rem;
   transition: all 0.2s ease-in-out;
+`
+
+export const SearchButton = styled(buttonBaseStyle)`
+  background-color: ${({ theme }) => theme.palette.primary.main};
 
   &:hover {
     background-color: ${({ theme }) => theme.palette.primary.light};
   }
+`
+
+export const RemoveFilterButton = styled(buttonBaseStyle)`
+  background-color: ${({ theme }) => theme.palette.warning};
 `

@@ -13,6 +13,12 @@ export const Wrapper = styled.div`
   gap: 20px;
 `
 
+export const Title = styled.h1`
+  color: ${({ theme }) => theme.palette.primary.main};
+  font-weight: 800;
+  font-size: 2.5rem;
+`
+
 export const ButtonBase = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -33,4 +39,10 @@ export const AddExpenseButton = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.palette.primary.light};
   }
+`
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `

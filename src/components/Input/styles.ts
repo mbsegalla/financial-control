@@ -21,7 +21,7 @@ export const Label = styled.label`
 const inputBaseStyle = css<InputProps>`
   padding: 12px 45px;
   border-radius: 0.5rem;
-  border: 1px solid ${({ theme, error }) => (error ? theme.palette.error : theme.palette.primary.main)};
+  border: 1px solid ${({ theme, error }) => (error ? theme.palette.warning : theme.palette.primary.main)};
   background-color: #ecf0f1;
   color: ${({ theme }) => theme.palette.text.primary};
   font-weight: 400;
@@ -62,7 +62,7 @@ export const IconBase = styled.div`
 export const ErrorMessage = styled.span<InputProps>`
   font-size: 0.75rem;
   min-height: 18px;
-  color: ${({ theme }) => theme.palette.error};
+  color: ${({ theme }) => theme.palette.warning};
 
   opacity: ${({ error }) => (error ? 1 : 0)};
 `

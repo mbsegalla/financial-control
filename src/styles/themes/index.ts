@@ -11,6 +11,6 @@ export const theme = {
       secondary: '#757575',
       disabled: '#BDBDBD',
     },
-    error: '#FF3333',
+    warning: '#FF3333',
   },
 } as const
