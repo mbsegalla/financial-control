@@ -1,11 +1,13 @@
+import { FaPencilAlt, FaRegTrashAlt } from 'react-icons/fa'
+
 import { formattedDate } from '../../utils/formatDate'
 import { formatPrice } from '../../utils/formatPrice'
 import { translateCategory, translatePaymentMethod } from '../../utils/translates'
 
-import { TabelRow, Table, TableBody, TableCell, TableHead } from './styles'
+import { DeleteExpenseButton, EditExpenseButton, TabelRow, Table, TableBody, TableCell, TableHead } from './styles'
 
 interface ExpensestableProps {
-  data: {
+  expenses: {
     _id: string
     userId: string | null
     name: string
@@ -16,24 +18,24 @@ interface ExpensestableProps {
     installments?: number
     comments?: string
   }[]
+  deleteExpense: (expeseId: string) => void
+  editExpense: () => void
 }
 
-const ExpensesTable = ({ data }: ExpensestableProps) => {
+const tableHeadList = ['Nome', 'Valor', 'Data', 'Categoria', 'Forma de pagamento', 'Parcelas', 'Observações', 'Ações']
+
+const ExpensesTable = ({ expenses, editExpense, deleteExpense }: ExpensestableProps) => {
   return (
     <Table>
       <TableHead>
         <TabelRow>
-          <TableCell>Nome</TableCell>
-          <TableCell>Valor</TableCell>
-          <TableCell>Data</TableCell>
-          <TableCell>Categoria</TableCell>
-          <TableCell>Forma de pagamento</TableCell>
-          <TableCell>Parcelas</TableCell>
-          <TableCell>Observações</TableCell>
+          {tableHeadList.map((head) => (
+            <TableCell key={head}>{head}</TableCell>
+          ))}
         </TabelRow>
       </TableHead>
       <TableBody>
-        {data.map((expense) => (
+        {expenses.map((expense) => (
           <TabelRow key={expense._id}>
             <td>{expense.name}</td>
             <td>{formatPrice(expense.price)}</td>
@@ -42,6 +44,14 @@ const ExpensesTable = ({ data }: ExpensestableProps) => {
             <td>{translatePaymentMethod(expense.paymentMethod)}</td>
             <td>{expense.installments}</td>
             <td>{expense.comments}</td>
+            <td>
+              <EditExpenseButton onClick={editExpense}>
+                <FaPencilAlt title="Editar despesa" size={20} />
+              </EditExpenseButton>
+              <DeleteExpenseButton onClick={() => deleteExpense(expense._id)}>
+                <FaRegTrashAlt title="Excluir despesa" size={20} />
+              </DeleteExpenseButton>
+            </td>
           </TabelRow>
         ))}
       </TableBody>

@@ -61,7 +61,14 @@ const ExpenseRegisterForm = ({ setOpenModal }: ExpenseRegisterFormProps) => {
       </InputWrapper>
 
       <InputWrapper>
-        <Input type="date" label="Data da despesa" error={errors.date?.message} icon={<MdOutlineDateRange />} {...register('date')} />
+        <Input
+          type="date"
+          label="Data da despesa"
+          placeholder="dd/mm/aaaa"
+          error={errors.date?.message}
+          icon={<MdOutlineDateRange />}
+          {...register('date')}
+        />
         <Input
           type="select"
           label="Categoria"

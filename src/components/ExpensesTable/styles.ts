@@ -25,4 +25,24 @@ export const TableBody = styled.tbody`
   }
 `
 
-export const TabelRow = styled.tr``
+export const TabelRow = styled.tr`
+  & :last-child {
+    display: flex;
+    justify-content: center;
+  }
+`
+
+export const ActionButton = styled.button`
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+`
+
+export const EditExpenseButton = styled(ActionButton)`
+  color: ${({ theme }) => theme.palette.primary.main};
+`
+
+export const DeleteExpenseButton = styled(ActionButton)`
+  color: ${({ theme }) => theme.palette.warning};
+`
